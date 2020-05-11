@@ -3,6 +3,8 @@ package cn.tellsea.service.impl;
 import cn.tellsea.mapper.UserMapper;
 import cn.tellsea.bean.User;
 import cn.tellsea.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
@@ -16,6 +18,7 @@ import java.util.List;
 @Service
 @CacheConfig(cacheNames = "users")//缓存名字
 public class UserServiceImpl implements UserService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     private UserMapper userMapper;
@@ -57,6 +60,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Cacheable(key = "'user_'+#id")//先查缓存，有就直接返回，没得就把返回值加入缓存
     public User get(Long id) {
+        LOGGER.info("query id {} from db", id);
         return userMapper.selectByPrimaryKey(id);
     }
 
