@@ -1,7 +1,5 @@
 package cn.tellsea.ehcache;
 
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.config.Configuration;
 import org.junit.Test;
 
 /**

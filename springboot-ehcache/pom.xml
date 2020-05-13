@@ -42,8 +42,9 @@
         </dependency>
         <!-- ehcache 缓存 -->
         <dependency>
-            <groupId>net.sf.ehcache</groupId>
+            <groupId>org.ehcache</groupId>
             <artifactId>ehcache</artifactId>
+            <version>3.8.1</version>
         </dependency>
 
         <!-- mybatis -->
