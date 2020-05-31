@@ -8,11 +8,21 @@ import javax.persistence.Table;
 
 @Data
 @Table(name = "tb_user")
-public class User {
+public class User implements Cloneable {
 
     @Id
     @KeySql(useGeneratedKeys = true)
     private Long id;
     private String name;
     private String passwd;
+
+    @Override
+    public User clone() {
+        User user = null;
+        try {
+             user = (User) super.clone();
+        } catch (CloneNotSupportedException e) {
+        }
+        return user;
+    }
 }

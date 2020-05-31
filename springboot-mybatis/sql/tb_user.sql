@@ -35,3 +35,10 @@ INSERT INTO `tb_user` VALUES ('3', 'super', '565656');
 INSERT INTO `tb_user` VALUES ('4', 'about', '888888');
 INSERT INTO `tb_user` VALUES ('5', 'relation', '000000');
 INSERT INTO `tb_user` VALUES ('6', 'ship', '345678');
+
+DROP TABLE IF EXISTS `tb_money`;
+CREATE TABLE `tb_money` (
+   id bigint(20) primary key auto_increment,
+   user_id bigint(20),
+   money double
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
